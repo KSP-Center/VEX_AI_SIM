@@ -59,13 +59,13 @@ public:
     right3->setAvailableTorque(MAX_TORQUE);
  
     // other motors/pneumatics
-    Hook->setAvailableTorque(MAX_TORQUE);
-    topRingArm->setAvailableTorque(MAX_TORQUE);
-    intakeHold->setAvailableTorque(MAX_TORQUE);
+    Hook->setAvailableTorque(MAX_TORQUE * 10);
+    topRingArm->setAvailableTorque(MAX_TORQUE * 10);
+    intakeHold->setAvailableTorque(MAX_TORQUE * 10);
     intakeRoll->setAvailableTorque(MAX_TORQUE);
     conveyor->setAvailableTorque(MAX_TORQUE);
-    ringClampL->setAvailableTorque(MAX_TORQUE);
-    ringClampR->setAvailableTorque(MAX_TORQUE);
+    ringClampL->setAvailableTorque(MAX_TORQUE * 10);
+    ringClampR->setAvailableTorque(MAX_TORQUE * 10);
     cout << "MAINBOT: torque set" << endl;
    
     // ACCELERATION
@@ -87,19 +87,35 @@ public:
     ringClampR->setAcceleration(ACCELERATION);
     cout << "MAINBOT: acceleration set" << endl;
     
-    // EMITTER AND RECEIVER
+    // FORCE FEEDBACK
+    // drivetrain
+    left1->enableForceFeedback(TIME_STEP);
+    left2->enableForceFeedback(TIME_STEP);
+    left3->enableForceFeedback(TIME_STEP);
+    right1->enableForceFeedback(TIME_STEP);
+    right2->enableForceFeedback(TIME_STEP);
+    right3->enableForceFeedback(TIME_STEP);
+    
+    // other motors/pneumatics
+    Hook->enableForceFeedback(TIME_STEP);
+    topRingArm->enableForceFeedback(TIME_STEP);
+    intakeHold->enableForceFeedback(TIME_STEP);
+    intakeRoll->enableForceFeedback(TIME_STEP);
+    ringClampL->enableForceFeedback(TIME_STEP);
+    ringClampR->enableForceFeedback(TIME_STEP);
+    
+    // OTHERS
     receiv->enable(TIME_STEP);
     receiv->setChannel(CHANNEL_NUMBER);
     emit->setChannel(CHANNEL_NUMBER);
     emit->setRange(RANGE);
-    cout << "MAINBOT: emitter and receiver set" << endl;
-    
-    // CAMERA
     invisVision->enable(TIME_STEP);
     invisVision->recognitionEnable(TIME_STEP);
-    
-    // GPS
     yes->enable(TIME_STEP);
+    isGoalHere->enable(TIME_STEP);
+    isGoalHere->recognitionEnable(TIME_STEP);
+    isRingHere->enable(TIME_STEP);
+    isRingHere->recognitionEnable(TIME_STEP);
   }
   
   // delay the program
