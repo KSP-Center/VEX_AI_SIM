@@ -2,6 +2,7 @@
 // webots libraries
 #include <webots/Camera.hpp>
 #include <webots/Emitter.hpp>
+#include <webots/DistanceSensor.hpp>
 #include <webots/GPS.hpp>
 #include <webots/Motor.hpp>
 #include <webots/Node.hpp>
@@ -33,6 +34,7 @@ using namespace webots;
 #include <fstream>
 #include <stdexcept>
 #include <cassert>
+#include <iomanip>
 
 // extra namespaces
 using namespace std;
