@@ -23,11 +23,17 @@ Motor *ringClampR = robot->getMotor("ringClampR");
 Emitter *emit = robot->getEmitter("emit");
 Receiver *receiv = robot->getReceiver("receiv");
 Camera *invisVision = robot->getCamera("invisVision");
+Camera *isGoalHere = robot->getCamera("isGoalHere");
+Camera *isRingHere = robot->getCamera("isRingHere");
 GPS *yes = robot->getGPS("yes");
 
 // nodes
-// robot and goals
+// main components
 Node *mainBotNode = robot->getFromDef("mainBot");
+Node *hook1 = robot->getFromDef("hook1");
+Node *hook2 = robot->getFromDef("hook2");
+Node *hook3 = robot->getFromDef("hook3");
+Node *hook4 = robot->getFromDef("hook4");
 Node *goalNode1 = robot->getFromDef("goal1");
 Node *goalNode2 = robot->getFromDef("goal2");
 Node *goalNode3 = robot->getFromDef("goal3");
@@ -73,9 +79,17 @@ Node *blueRing9 = robot->getFromDef("blueRing9");
 Node *blueRing10 = robot->getFromDef("blueRing10");
 
 // fields
-// robot and goals
+// main components
 Field *translateFieldBot = mainBotNode->getField("translation");
 Field *rotateFieldBot = mainBotNode->getField("rotation");
+Field *moveHook1 = hook1->getField("translation");
+Field *moveHook2 = hook2->getField("translation");
+Field *moveHook3 = hook3->getField("translation");
+Field *moveHook4 = hook4->getField("translation");
+Field *rotateHook1 = hook1->getField("rotation");
+Field *rotateHook2 = hook2->getField("rotation");
+Field *rotateHook3 = hook3->getField("rotation");
+Field *rotateHook4 = hook4->getField("rotation");
 Field *translateGoal1 = goalNode1->getField("translation");
 Field *translateGoal2 = goalNode2->getField("translation");
 Field *translateGoal3 = goalNode3->getField("translation");
